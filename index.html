@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    
+    <title>untuk mega bandung</title>
+    <meta name="description" content="Professional Portfolio of Muhamad Syauqal Afwika Rahman - Tax & IT Advisor" />
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/id/2/2d/Undip.png" type="image/x-icon" />
+
+    <meta property="og:title" content="SYAUQAL PORTOFOLIO" />
+    <meta property="og:description" content="Professional Portfolio - Tax Accounting & IT Financial Advisor" />
+    <meta property="og:image" content="https://drive.google.com/thumbnail?id=1oNZUUg22zKaAhmSYu0KOC-itJtuT6VAF&sz=w1000" />
+    <meta property="og:url" content="https://qal.vercel.app" />
+    <meta property="og:type" content="website" />
+
+    <meta name="theme-color" content="#efeef6" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <style>
+      /* RESET CSS */
+      * { box-sizing: border-box; }
+
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100dvh; /* Dynamic Height untuk Mobile Browser */
+        overflow: hidden;
+        background-color: #efeef6; /* Warna disamakan dengan tema */
+        overscroll-behavior: none;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      /* CONTAINER IFRAME */
+      .iframe-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      iframe {
+        border: none;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-color: #efeef6;
+      }
+
+      /* ERROR MESSAGE (Muncul jika Iframe Gagal/Undefined) */
+      #error-message {
+        display: none;
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 80%;
+        color: #333;
+        z-index: 0;
+      }
+      
+      /* TOMBOL BANTUAN UNTUK PENGGUNA INSTAGRAM */
+      .ig-overlay-hint {
+        display: none; /* Default sembunyi, muncul via JS jika di IG */
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.7);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 12px;
+        z-index: 9999;
+        pointer-events: none;
+        backdrop-filter: blur(5px);
+        white-space: nowrap;
+        animation: fadeOut 5s forwards;
+        animation-delay: 3s;
+      }
+
+      @keyframes fadeOut {
+        to { opacity: 0; visibility: hidden; }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="ig-hint" class="ig-overlay-hint">
+      Tampilan lebih baik? Klik titik 3 ↗ & Buka di Browser
+    </div>
+
+    <div id="error-message">
+      <h3>Memuat Portofolio...</h3>
+      <p>Jika loading berhenti, coba refresh atau buka di Chrome/Safari.</p>
+    </div>
+
+    <div class="iframe-container">
+      <iframe
+        id="main-frame"
+        src="https://script.google.com/macros/s/AKfycbwwGSeESZxON5agbechP5JKBWH4Pu2qpJtHqfuK0l2ykFj1Wj666s6x72O2XAkHxot4yA/exec"
+        allow="fullscreen; clipboard-read; clipboard-write; autoplay; camera; microphone; payment"
+        sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation allow-storage-access-by-user-activation"
+        allowfullscreen="true"
+        webkitallowfullscreen="true"
+        mozallowfullscreen="true">
+      </iframe>
+    </div>
+
+    <script>
+      // SCRIPT DETEKSI BROWSER INSTAGRAM / FACEBOOK
+      // Tujuannya memberitahu user jika ada potensi error
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var isInstagram = (ua.indexOf('Instagram') > -1) || (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1);
+
+      if (isInstagram) {
+        // Tampilkan pesan bantuan kecil di bawah
+        document.getElementById('ig-hint').style.display = 'block';
+      }
+
+      // Fallback jika iframe gagal load dalam 5 detik
+      var iframe = document.getElementById('main-frame');
+      var errorMsg = document.getElementById('error-message');
+      
+      setTimeout(function() {
+        // Cek sederhana, jika iframe masih blank (terkadang sulit dideteksi karena cross-origin)
+        // Kita asumsikan user melihat loading
+      }, 5000);
+    </script>
+  </body>
+</html>
